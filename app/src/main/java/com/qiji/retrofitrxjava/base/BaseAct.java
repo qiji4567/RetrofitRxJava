@@ -2,6 +2,7 @@ package com.qiji.retrofitrxjava.base;
 
 import android.os.Bundle;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,17 +21,17 @@ public abstract class BaseAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityManagerUtils.getInstance().addActivity(this);
         layoutId();
-        iniData();
+        iniData(savedInstanceState);
     }
 
     /**
      * 初始化数据
      */
-    protected abstract void iniData();
+    protected abstract void iniData(@Nullable Bundle savedInstanceState);
 
     /**
      * 加载布局
      * @return
      */
-    protected abstract int layoutId();
+    protected abstract @LayoutRes int layoutId();
 }
